@@ -1,0 +1,165 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #050505;
+}
+
+/* ── Canvas ── */
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Overlay: clears center for logo ── */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 50% 38% at 50% 48%, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.3) 55%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ── Center content ── */
+
+.center {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  opacity: 0;
+  transform: translateY(16px) scale(0.98);
+  transition: opacity 1s ease 0.3s, transform 1s ease 0.3s;
+}
+
+.hero.visible .center {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.logo {
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 200;
+  font-size: clamp(4.5rem, 10vw, 8rem);
+  letter-spacing: -0.05em;
+  color: rgba(255, 255, 255, 0.96);
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.tagline {
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 300;
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.02em;
+  margin-bottom: 52px;
+}
+
+/* ── Buttons ── */
+
+.buttons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+.btnPrimary,
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  padding: 10px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+}
+
+.btnPrimary svg,
+.btnSecondary svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.btnPrimary {
+  background: rgba(255, 255, 255, 0.92);
+  color: #060606;
+}
+.btnPrimary:hover {
+  background: white;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.btnSecondary:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 960px) {
+  .hero {
+    min-height: 100svh;
+  }
+
+  .logo {
+    font-size: clamp(3.2rem, 14vw, 5rem);
+  }
+
+  .tagline {
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    border-radius: 20px;
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .center {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}

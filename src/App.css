@@ -1,0 +1,116 @@
+@font-face { font-family:'PPFragment'; src:url('/fonts/PPFragment-SansExtraLight.woff2') format('woff2'); font-weight:200; font-display:swap; }
+@font-face { font-family:'PPFragment'; src:url('/fonts/PPFragment-SansLight.woff2') format('woff2'); font-weight:300; font-display:swap; }
+@font-face { font-family:'PPFragment'; src:url('/fonts/PPFragment-SansRegular.woff2') format('woff2'); font-weight:400; font-display:swap; }
+@font-face { font-family:'PPFragment'; src:url('/fonts/PPFragment-SansMedium.woff2') format('woff2'); font-weight:500; font-display:swap; }
+
+*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+
+:root {
+  --bg:      #060606;
+  --text:    rgba(255,255,255,0.92);
+  --muted:   rgba(255,255,255,0.34);
+  --faint:   rgba(255,255,255,0.13);
+  --border:  rgba(255,255,255,0.07);
+  --glass:   rgba(255,255,255,0.035);
+}
+
+html { scroll-behavior:smooth; }
+
+body {
+  background:var(--bg); color:var(--text);
+  font-family:'PPFragment',sans-serif;
+  font-weight:300; line-height:1.6; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Grain overlay */
+body::before {
+  content:''; position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px 256px;
+}
+
+main { position:relative; z-index:3; overflow-x:clip; }
+
+/* Layout */
+.section { padding:260px 0; }
+.container { max-width:1220px; margin:0 auto; padding:0 64px; }
+
+/* Click echo */
+.click-echo {
+  position:fixed; border-radius:50%; pointer-events:none; z-index:999;
+  width:6px; height:6px; border:1px solid rgba(255,255,255,0.4);
+  transform:translate(-50%,-50%) scale(1);
+  animation:echo 0.7s ease-out forwards;
+}
+@keyframes echo { to { transform:translate(-50%,-50%) scale(18); opacity:0; } }
+
+/* Button ripple */
+.btn-ripple {
+  position:absolute; border-radius:50%; pointer-events:none;
+  background:rgba(0,0,0,0.15);
+  width:6px; height:6px;
+  transform:translate(-50%,-50%) scale(0);
+  animation:btn-ripple 0.55s ease-out forwards;
+}
+@keyframes btn-ripple { to { transform:translate(-50%,-50%) scale(28); opacity:0; } }
+
+/* Ring pulse */
+@keyframes ring-pulse { 0%,100%{border-color:rgba(255,255,255,0.7)} 50%{border-color:rgba(255,255,255,0.35)} }
+
+/* Reveal animation */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.65s ease, transform 0.65s ease; }
+.reveal.on { opacity:1; transform:translateY(0); }
+.reveal-d1 { transition-delay:0.1s; }
+.reveal-d2 { transition-delay:0.22s; }
+.reveal-d3 { transition-delay:0.34s; }
+
+/* Section tag line draw */
+.sec-tag::after {
+  content:''; flex:1; height:1px; background:var(--border);
+  transform:scaleX(0); transform-origin:left;
+  transition:transform 0.8s ease 0.2s;
+}
+.sec-tag.line-on::after { transform:scaleX(1); }
+
+/* Section typography */
+.sec-h {
+  font-family:'PPFragment',sans-serif; font-weight:200;
+  font-size:clamp(2.2rem, 3.6vw, 3.6rem);
+  letter-spacing:-0.04em; line-height:1.07; margin-bottom:18px;
+  color:rgba(255,255,255,0.92);
+}
+.sec-p {
+  color:var(--muted); font-size:0.97rem; line-height:1.82;
+  font-weight:300; max-width:400px;
+}
+.dot-list {
+  list-style:none; margin-top:26px;
+  display:flex; flex-direction:column; gap:10px;
+}
+.dot-list li {
+  display:flex; align-items:flex-start; gap:11px;
+  font-size:0.88rem; color:var(--muted); font-weight:300;
+}
+.dot-list li::before {
+  content:''; width:4px; height:4px; border-radius:50%;
+  background:rgba(255,255,255,0.3); margin-top:9px; flex-shrink:0;
+}
+
+/* Responsive */
+@media (max-width:960px) {
+  .container { padding:0 24px; }
+  .section { padding:120px 0; }
+  .sec-h { font-size:clamp(1.8rem, 7vw, 2.4rem); }
+  .sec-p { font-size:0.9rem; max-width:100%; }
+  .dot-list li { font-size:0.84rem; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

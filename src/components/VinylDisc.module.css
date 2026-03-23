@@ -1,0 +1,60 @@
+/* Exact port of emergesound.ai turrell-circle + aura-ring */
+
+.turrellCircle {
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 240, 150, 0.6) 0%, rgba(168, 85, 247, 0.3) 70%);
+  box-shadow: 0 0 40px 10px rgba(168, 85, 247, 0.4);
+}
+
+.auraRing {
+  position: relative;
+  display: inline-block;
+  line-height: 0;
+}
+
+.auraRing::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 240, 150, 0.2) 0%, rgba(168, 85, 247, 0.1) 50%, rgba(10, 10, 30, 0) 70%);
+  z-index: -1;
+  animation: pulseAura 8s infinite alternate, hueRotate 20s infinite linear;
+}
+
+.auraRing::after {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  right: -100px;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, rgba(255, 240, 150, 0.1) 0%, rgba(168, 85, 247, 0.05) 50%, rgba(10, 10, 30, 0) 70%);
+  z-index: -2;
+  animation: pulseAura 8s infinite alternate 4s, hueRotate 20s infinite linear 10s;
+}
+
+@keyframes pulseAura {
+  0% { transform: scale(0.95); opacity: 0.5; }
+  100% { transform: scale(1.05); opacity: 0.8; }
+}
+
+@keyframes hueRotate {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+@media (max-width: 960px) {
+  .turrellCircle {
+    width: 140px;
+    height: 140px;
+  }
+}

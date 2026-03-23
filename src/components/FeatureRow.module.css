@@ -1,0 +1,39 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textOnly {
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 640px;
+  margin-bottom: 56px;
+}
+
+.textOnly .text {
+  margin-bottom: 0;
+}
+
+.media {
+  width: 100%;
+  max-width: 960px;
+}
+
+@media (max-width: 960px) {
+  .text {
+    margin-bottom: 40px;
+  }
+
+  .textOnly {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

@@ -1,0 +1,28 @@
+.btn {
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 14px 30px;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(255,255,255,0.92);
+  color: #060606;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.btn:hover {
+  background: white;
+  box-shadow: 0 10px 36px rgba(255,255,255,0.13);
+}
+.btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}

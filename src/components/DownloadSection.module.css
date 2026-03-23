@@ -1,0 +1,128 @@
+.section {
+  padding: 200px 0;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 64px;
+}
+
+.heading {
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 200;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+
+.sub {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 360px;
+  margin: 0 auto 60px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 36px 28px 28px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.025);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.card:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-2px);
+}
+
+.chip {
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.arch {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.btnRow {
+  display: flex;
+  justify-content: center;
+}
+
+.dlBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #060606;
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: -0.01em;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.card:hover .dlBtn {
+  background: white;
+  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.1);
+}
+.dlBtn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.size {
+  font-size: 0.7rem;
+  color: var(--faint);
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+.fine {
+  margin-top: 40px;
+  font-size: 0.74rem;
+  color: rgba(255, 255, 255, 0.16);
+}
+
+@media (max-width: 960px) {
+  .section {
+    padding: 120px 0;
+  }
+  .container {
+    padding: 0 24px;
+  }
+  .heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .cards {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+}
