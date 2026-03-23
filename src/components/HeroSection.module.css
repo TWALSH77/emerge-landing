@@ -8,16 +8,12 @@
   background: #050505;
 }
 
-/* ── Canvas ── */
-
 .canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
 }
-
-/* ── Overlay: clears center for logo ── */
 
 .overlay {
   position: absolute;
@@ -28,14 +24,13 @@
   pointer-events: none;
 }
 
-/* ── Center content ── */
-
 .center {
   position: relative;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   gap: 0;
   opacity: 0;
   transform: translateY(16px) scale(0.98);
@@ -50,110 +45,72 @@
 .logo {
   font-family: 'PPFragment', sans-serif;
   font-weight: 200;
-  font-size: clamp(4.5rem, 10vw, 8rem);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
   letter-spacing: -0.05em;
   color: rgba(255, 255, 255, 0.96);
   line-height: 1;
-  margin-bottom: 14px;
+  margin-bottom: 24px;
 }
 
 .tagline {
   font-family: 'PPFragment', sans-serif;
-  font-weight: 300;
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.02em;
-  margin-bottom: 52px;
+  font-weight: 200;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 18px;
 }
 
-/* ── Buttons ── */
-
-.buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 100px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-}
-
-.btnPrimary,
-.btnSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+.sub {
   font-family: 'PPFragment', sans-serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: -0.01em;
-  padding: 10px 22px;
-  border-radius: 100px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
-}
-
-.btnPrimary svg,
-.btnSecondary svg {
-  width: 14px;
-  height: 14px;
-  flex-shrink: 0;
+  font-weight: 300;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 1.7;
+  max-width: 420px;
+  margin-bottom: 40px;
 }
 
 .btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: 'PPFragment', sans-serif;
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: -0.01em;
+  padding: 14px 32px;
+  border-radius: 100px;
   background: rgba(255, 255, 255, 0.92);
   color: #060606;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
 }
 .btnPrimary:hover {
   background: white;
-  box-shadow: 0 8px 28px rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 36px rgba(255,255,255,0.13);
   transform: translateY(-1px);
 }
-
-.btnSecondary {
-  background: transparent;
-  color: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
+.btnPrimary svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
 }
 
-/* ── Responsive ── */
+.note {
+  margin-top: 14px;
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.13);
+  letter-spacing: 0.01em;
+}
 
 @media (max-width: 960px) {
-  .hero {
-    min-height: 100svh;
-  }
-
-  .logo {
-    font-size: clamp(3.2rem, 14vw, 5rem);
-  }
-
-  .tagline {
-    font-size: 0.95rem;
-    margin-bottom: 36px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    border-radius: 20px;
-    gap: 8px;
-    padding: 8px;
-  }
-
-  .btnPrimary,
-  .btnSecondary {
-    width: 100%;
-    justify-content: center;
-    padding: 12px 24px;
-  }
+  .hero { min-height: 100svh; }
+  .logo { font-size: clamp(2.8rem, 12vw, 4rem); }
+  .tagline { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+  .sub { font-size: 0.88rem; max-width: 100%; padding: 0 20px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

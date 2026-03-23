@@ -4,13 +4,13 @@ import styles from './PillarsSection.module.css'
 const pillars = [
   {
     num: '01',
-    title: 'Store Locally',
-    desc: 'Your music stays on your machine. emerge creates lightweight fingerprints — your files are never uploaded or shared.',
+    title: 'Deep Understanding',
+    desc: 'emerge goes beyond key and BPM. It analyses timbre, texture, spatial characteristics, and micro-dynamics to truly understand how your music sounds.',
   },
   {
     num: '02',
-    title: 'Index & Search',
-    desc: 'Every track is analysed for similarity, mood, and texture. Search by sound, not just metadata.',
+    title: 'Search by Sound',
+    desc: 'Every track is mapped into a high-dimensional vector space. Search by sonic similarity, not just metadata.',
   },
   {
     num: '03',

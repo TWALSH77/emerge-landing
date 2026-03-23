@@ -6,7 +6,7 @@ export default function LibrarySection() {
     <FeatureRow
       tag="Your Library"
       heading="Point it at your music.<br/>Everything else follows."
-      description="emerge scans every track and creates an audio fingerprint — that fingerprint powers everything. Your files stay on your machine and are never uploaded."
+      description="emerge scans every track and creates an audio fingerprint. That fingerprint powers everything: search, similarity, discovery."
       image={libraryImg}
       imageAlt="emerge library view showing indexed tracks"
     />

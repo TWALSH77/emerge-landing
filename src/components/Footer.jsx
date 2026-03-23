@@ -7,9 +7,9 @@ export default function Footer() {
         <div className={styles.logo}>emerge</div>
       </div>
       <div className={styles.center}>
-        <a href="#about" className={styles.link}>About</a>
         <a href="#download" className={styles.link}>Download</a>
-        <a href="#contact" className={styles.link}>Contact</a>
+        <a href="#demo" className={styles.link}>Demo</a>
+        <a href="mailto:ted@emergesound.ai" className={styles.link}>Contact</a>
       </div>
       <div className={styles.right}>
         <div className={styles.copy}>&copy; 2026 emerge</div>

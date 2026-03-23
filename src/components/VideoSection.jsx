@@ -6,7 +6,8 @@ export default function VideoSection() {
     <section id="demo" className={styles.section}>
       <div className={styles.container}>
         <RevealOnScroll>
-          <h2 className={styles.heading}>See it in action</h2>
+          <h2 className={styles.heading}>Watch emerge in action</h2>
+          <p className={styles.sub}>Indexing, searching, and discovering across a full music library.</p>
         </RevealOnScroll>
         <RevealOnScroll delay={1}>
           <div className={styles.videoWrap}>

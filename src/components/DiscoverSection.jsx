@@ -5,8 +5,8 @@ export default function DiscoverSection() {
   return (
     <FeatureRow
       tag="Discover"
-      heading="When you're ready, your library becomes part of something&nbsp;larger."
-      description="Share your music through the emerge fingerprint network. Your files stay on your machine, but others can discover what you have, listen, and request downloads."
+      heading="Your library becomes part<br/>of something larger."
+      description="Share your music through the emerge fingerprint network. Your files stay on your machine, but others can discover what you have, listen, and connect."
       image={discoverImg}
       imageAlt="emerge discover view with artist profiles and published tracks"
     />

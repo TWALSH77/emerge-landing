@@ -4,11 +4,12 @@ import CursorGlow from './components/CursorGlow'
 import ClickEcho from './components/ClickEcho'
 import Nav from './components/Nav'
 import HeroSection from './components/HeroSection'
+import PillarsSection from './components/PillarsSection'
+import LibrarySection from './components/LibrarySection'
+import SimilarSection from './components/SimilarSection'
+import DiscoverSection from './components/DiscoverSection'
 import VideoSection from './components/VideoSection'
-import FeaturesSection from './components/FeaturesSection'
-import AboutSection from './components/AboutSection'
 import DownloadSection from './components/DownloadSection'
-import ContactSection from './components/ContactSection'
 import Footer from './components/Footer'
 
 export default function App() {
@@ -22,11 +23,12 @@ export default function App() {
       <Nav scrolled={scrolled} />
       <main>
         <HeroSection />
+        <PillarsSection />
+        <LibrarySection />
+        <SimilarSection />
+        <DiscoverSection />
         <VideoSection />
-        <FeaturesSection />
-        <AboutSection />
         <DownloadSection />
-        <ContactSection />
         <Footer />
       </main>
     </>
