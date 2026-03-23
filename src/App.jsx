@@ -6,9 +6,6 @@ import Nav from './components/Nav'
 import HeroSection from './components/HeroSection'
 import VideoSection from './components/VideoSection'
 import PillarsSection from './components/PillarsSection'
-import LibrarySection from './components/LibrarySection'
-import SimilarSection from './components/SimilarSection'
-import DiscoverSection from './components/DiscoverSection'
 import DownloadSection from './components/DownloadSection'
 import Footer from './components/Footer'
 
@@ -25,9 +22,6 @@ export default function App() {
         <HeroSection />
         <VideoSection />
         <PillarsSection />
-        <LibrarySection />
-        <SimilarSection />
-        <DiscoverSection />
         <DownloadSection />
         <Footer />
       </main>
