@@ -65,8 +65,7 @@ function VectorLandscape() {
         brightness: 0.15 + Math.random() * 0.35,
         pulsePhase: Math.random() * Math.PI * 2,
         pulseSpeed: 0.5 + Math.random() * 1.5,
-        x: 0,
-        y: 0,
+        x: 0, y: 0,
       }
     })
 
@@ -75,7 +74,6 @@ function VectorLandscape() {
     function draw() {
       time += 0.008
       ctx.clearRect(0, 0, w, h)
-
       const mx = mouseRef.current.x
       const my = mouseRef.current.y
 
@@ -91,10 +89,8 @@ function VectorLandscape() {
         const oy = Math.cos(time * p.offsetSpeed * 0.7 + p.offsetPhase) * p.offsetAmp
         p.x = (p.baseX + (p.cluster.x - 0.5) * 0.3 + ox) * w
         p.y = (p.baseY + (p.cluster.y - 0.5) * 0.3 + oy) * h
-
         if (mx > 0) {
-          const dx = p.x - mx
-          const dy = p.y - my
+          const dx = p.x - mx, dy = p.y - my
           const dist = Math.sqrt(dx * dx + dy * dy)
           if (dist < MOUSE_RADIUS && dist > 0) {
             const force = (1 - dist / MOUSE_RADIUS) * 25
@@ -109,15 +105,12 @@ function VectorLandscape() {
         const a = points[i]
         for (let j = i + 1; j < points.length; j++) {
           const b = points[j]
-          const dx = a.x - b.x
-          const dy = a.y - b.y
+          const dx = a.x - b.x, dy = a.y - b.y
           const dist = Math.sqrt(dx * dx + dy * dy)
           if (dist < CONNECT_DIST) {
             let alpha = (1 - dist / CONNECT_DIST) * 0.12
             if (mx > 0) {
-              const midX = (a.x + b.x) / 2
-              const midY = (a.y + b.y) / 2
-              const mDist = Math.sqrt((midX - mx) ** 2 + (midY - my) ** 2)
+              const mDist = Math.sqrt(((a.x+b.x)/2-mx)**2 + ((a.y+b.y)/2-my)**2)
               if (mDist < MOUSE_RADIUS) alpha += (1 - mDist / MOUSE_RADIUS) * 0.15
             }
             ctx.strokeStyle = `rgba(255,255,255,${alpha})`
@@ -133,8 +126,7 @@ function VectorLandscape() {
         const pulse = 0.7 + 0.3 * Math.sin(time * p.pulseSpeed + p.pulsePhase)
         let alpha = p.brightness * pulse
         if (mx > 0) {
-          const dx = p.x - mx
-          const dy = p.y - my
+          const dx = p.x - mx, dy = p.y - my
           const dist = Math.sqrt(dx * dx + dy * dy)
           if (dist < MOUSE_RADIUS) alpha += (1 - dist / MOUSE_RADIUS) * 0.5
         }
@@ -184,23 +176,32 @@ export default function HeroSection() {
 
       <div className={styles.center}>
         <h1 className={styles.logo}>emerge</h1>
-        <p className={styles.tagline}>
-          The library you built<br />deserves better than a folder.
-        </p>
-        <p className={styles.sub}>
-          A Mac app that understands your music beyond key and BPM.<br />
-          Search by sound. Discover by similarity. Keep everything local.
-        </p>
+        <p className={styles.tagline}>Your music, understood.</p>
 
-        <a href="#download" className={styles.btnPrimary}>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-            <polyline points="7 10 12 15 17 10" />
-            <line x1="12" y1="15" x2="12" y2="3" />
-          </svg>
-          Download for Mac
-        </a>
-        <span className={styles.note}>macOS 13 or later &middot; Free</span>
+        <div className={styles.buttons}>
+          <a href="#download" className={styles.btnPrimary}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Download
+          </a>
+          <a href="#demo" className={styles.btnSecondary}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3" />
+            </svg>
+            Watch Demo
+          </a>
+          <a href="#about" className={styles.btnSecondary}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="16" x2="12" y2="12" />
+              <line x1="12" y1="8" x2="12.01" y2="8" />
+            </svg>
+            Learn More
+          </a>
+        </div>
       </div>
     </section>
   )

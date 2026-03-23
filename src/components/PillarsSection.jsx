@@ -21,7 +21,7 @@ const pillars = [
 
 export default function PillarsSection() {
   return (
-    <section className={styles.section}>
+    <section id="about" className={styles.section}>
       <div className="container">
         <div className={styles.grid}>
           {pillars.map((p, i) => (
